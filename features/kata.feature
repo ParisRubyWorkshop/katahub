@@ -5,10 +5,17 @@ Feature: Kata API
     When sending the request GET "/api/v1/katas"
     Then I get the response
     """
-    [{
-      "id": 123,
-      "github_user_name": "fluency-in",
-      "github_repo_name": "ruby-beer-song"
-    }]
+    {
+      "data": [
+          {
+            "id": "123",
+            "attributes": {
+                "github-repo-name": "ruby-beer-song",
+                "github-user-name": "fluency-in"
+            },
+            "type": "kata"
+          }
+      ]
+    }
     """
 
