@@ -13,12 +13,13 @@ RSpec.describe Api::V1::KatasController do
   end
 
   describe "#show" do
-    before {create(:kata)}
+    before {create(:kata, github_repo_name: "rescoue", github_user_name: "ParisRubyWorkshop")}
 
     it "returns a kata" do
-      get :show, id: Kata.first.id
+      get :show, params: {id: Kata.first.id}
       response_data = JSON.parse(response.body)
       expect(response_data["data"]["id"]).to eq Kata.last.id.to_s
+      expect(response_data["data"]["attributes"]["readme"]).to start_with "rescoue"
     end
   end
 
