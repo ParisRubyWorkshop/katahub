@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :katas, only: [:index]
+      resources :katas, only: [:index, :show]
     end
   end
 end

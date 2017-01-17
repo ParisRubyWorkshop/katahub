@@ -19,3 +19,21 @@ Feature: Kata API
     }
     """
 
+    Scenario: Getting one kata
+    Given there is a kata in the database
+    When sending the request GET "/api/v1/katas/123"
+    Then I get the response
+    """
+    {
+      "data":
+        {
+          "id": "123",
+          "attributes": {
+              "github-repo-name": "ruby-beer-song",
+              "github-user-name": "fluency-in"
+          },
+          "type": "kata"
+        }
+    }
+    """
+

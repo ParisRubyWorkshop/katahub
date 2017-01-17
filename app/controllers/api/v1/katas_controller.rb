@@ -4,4 +4,9 @@ class Api::V1::KatasController < ApplicationController
     @katas = Kata.all
     render json: @katas
   end
+
+  def show
+    @kata = Kata.find(params[:id])
+    render json: @kata
+  end
 end
